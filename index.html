@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Jogo Reflexivo para Conforto</title>
+    <style>
+        body {
+            margin: 0;
+            padding: 0;
+            font-family: 'Arial', sans-serif;
+            text-align: center;
+            background: #1d1f27;
+            color: #ffffff;
+        }
+        .background {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: url('https://i.imgur.com/5LrNq.jpg') no-repeat center center;
+            background-size: cover;
+            z-index: -1;
+            opacity: 0.7;
+            animation: rain 3s infinite linear;
+        }
+        @keyframes rain {
+            0% { background-position: 0 0; }
+            100% { background-position: 100% 100%; }
+        }
+        .container {
+            margin: 100px auto;
+            width: 80%;
+            max-width: 800px;
+            padding: 20px;
+            background: rgba(0, 0, 0, 0.5);
+            border-radius: 10px;
+        }
+        h1 {
+            font-size: 2.5em;
+            margin-bottom: 20px;
+        }
+        p {
+            font-size: 1.2em;
+            margin-bottom: 30px;
+        }
+        button {
+            background-color: #4CAF50;
+            color: white;
+            padding: 15px 30px;
+            border: none;
+            border-radius: 5px;
+            font-size: 1.2em;
+            cursor: pointer;
+            margin: 10px;
+        }
+        button:hover {
+            background-color: #45a049;
+        }
+        audio {
+            display: none;
+        }
+    </style>
+</head>
+<body>
+
+    <div class="background"></div>
+
+    <div class="container">
+        <h1>Uma Jornada Reflexiva</h1>
+        <p id="story-text">Você está em um momento de dúvida. A chuva cai suavemente, e você sente que está na encruzilhada de sua vida. O que fará? O caminho à sua frente parece incerto.</p>
+        
+        <button onclick="makeChoice('school')">Entrar no ensino médio</button>
+        <button onclick="makeChoice('job')">Procurar um trabalho</button>
+        
+        <audio id="narration" src="C:/Users/THIAGO/Downloads/ElevenLabs_2024-09-11T18_07_28_Daniel_pre_s50_sb75_se0_b_m2,mp4" autoplay></audio>
+        <audio id="music" src="C:/Users/THIAGO/Downloads/Dandelion hands How to Never Stop Being Sad _ One Hour.mp4" loop autoplay></audio>
+    </div>
+
+    <script>
+        const storyText = document.getElementById("story-text");
+        const narrationAudio = document.getElementById("narration");
+
+        function makeChoice(choice) {
+            if (choice === 'school') {
+                storyText.innerHTML = "Você decidiu entrar no ensino médio. Ao longo do caminho, você percebe que cada escolha que faz molda quem você se torna. A chuva que cai representa a incerteza, mas também a limpeza de velhas preocupações.";
+                narrationAudio.src = "C:/Users/THIAGO/Downloads/Você decidiu entrar no ensino médio.mp3";
+                narrationAudio.play();
+            } else if (choice === 'job') {
+                storyText.innerHTML = "Você escolheu procurar um trabalho. As responsabilidades que surgem são muitas, mas você sente um crescimento pessoal e aprende a lidar com os desafios. A chuva continua a cair, mas agora parece reconfortante.";
+                narrationAudio.src = "C:/Users/THIAGO/Downloads/ElevenLabs_2024-09-11T18_24_05_Daniel_pre_s50_sb75_se0_b_m2.mp3";
+                narrationAudio.play();
+            }
+        }
+    </script>
+</body>
+</html>
